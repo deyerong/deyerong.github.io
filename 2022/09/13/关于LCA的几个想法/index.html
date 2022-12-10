@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="关于LCA的几个想法">
+<meta property="og:url" content="https://deyerong.github.io/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-13T02:17:24.000Z">
+<meta property="article:modified_time" content="2022-10-19T00:18:56.219Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="图">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/","path":"2022/09/13/关于LCA的几个想法/","title":"关于LCA的几个想法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>关于LCA的几个想法 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A8%E5%A4%A9%E5%9C%A8zxz%E7%9A%84%E6%8F%90%E7%A4%BA%E4%B8%8B%E6%88%91%E5%8E%BB%E8%A1%A5%E4%BA%86lca%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88%E6%9C%89%E6%84%9F%E8%80%8C%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">昨天在zxz的提示下我去补了LCA(最近公共祖先)，有感而作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">1.学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">2.思考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于LCA的几个想法 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+  <div class="out-img-topic">
+    <img src=https://view.moezx.cc/images/2022/09/13/640c009bc4b026c88dd8af44e2ca617c.jpg class="img-topic">
+  </div>
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于LCA的几个想法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-13 10:17:24" itemprop="dateCreated datePublished" datetime="2022-09-13T10:17:24+08:00">2022-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-19 08:18:56" itemprop="dateModified" datetime="2022-10-19T08:18:56+08:00">2022-10-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>  </p>
+<span id="more"></span>
+<h2
+id="昨天在zxz的提示下我去补了lca最近公共祖先有感而作">昨天在zxz的提示下我去补了LCA(最近公共祖先)，有感而作</h2>
+<!-- ![](https://view.moezx.cc/images/2022/09/13/640c009bc4b026c88dd8af44e2ca617c.jpg) -->
+<ul>
+<li><a
+href="#昨天在zxz的提示下我去补了lca最近公共祖先有感而作">昨天在zxz的提示下我去补了LCA(最近公共祖先)，有感而作</a></li>
+<li><a href="#1学习">1.学习</a></li>
+<li><a href="#2思考">2.思考</a>
+<ul>
+<li><a href="#1朴素">1.朴素</a></li>
+<li><a href="#2倍增">2倍增</a></li>
+<li><a href="#3-不怕犯错">3. 不怕犯错</a></li>
+<li><a href="#小聪明">小聪明</a></li>
+</ul></li>
+</ul>
+<h2 id="学习">1.学习</h2>
+<p>在我学习LCA的时候，遇到不会的，我直接选择的了逃避……直接学
+习其他博主写的code。导致我到最好也没有学到什么东西……
+所幸，我始终有很好的同学的来指出的我的错误
+<del>（在这里悄悄感谢他们）</del> 于是有了2</p>
+<h2 id="思考">2.思考</h2>
+<p><strong>正文开始：</strong>
+我们在LCA函数中是要让两个孩子不不断上升的，最后找到他们的
+<del>(爹)</del> 祖先， 于是乎，怎么来迫近这个祖先呢：
+<del>我</del>有如下想法 ### 1.朴素
+首先我们是在一个多叉树上找找祖先的，那么有个性质节点的父节点的
+==深度（depth）== 为该节点 ==-1== （应该）
+那么我们可以把不在同一层的孩子上升的到节点（根据深度差），然后依次同步向上，直到重合，
+==第一个重合的点== 自然就是最近公共祖先啦 （以上做法毕竟朴素，容易TLE
+<del>（寄掉）</del> ） <strong><em> ### 2倍增
+（又到了人见人爱（詪）的倍增了……
+用倍增，一半就不会TLE了，在预处理（把孩子上升到同一高度上）和不断上升进行了优化，
+<del>talk is cheap，show me your code</del> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="type">int</span> <span class="title">LCA</span><span class="params">(<span class="type">int</span> al, <span class="type">int</span> bl)</span> </span>&#123;	</span><br><span class="line">		</span><br><span class="line">    <span class="comment">//there: make depth[al] &lt; depth[bl] </span></span><br><span class="line">    <span class="comment">//=== al higher than bl </span></span><br><span class="line">	<span class="keyword">if</span> (depth[al] &gt; depth[bl]) &#123;</span><br><span class="line">		<span class="built_in">swap</span>(al, bl);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> x_h = depth[bl] - depth[al];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">20</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (x_h &amp; (<span class="number">1</span> &lt;&lt; i)) &#123;</span><br><span class="line">            <span class="comment">//用(1&lt;&lt;i)的原因是f[][i]这个第二的数组条件是二进制表示的</span></span><br><span class="line">			bl = father[bl][i];</span><br><span class="line">            </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (al == bl) &#123;<span class="keyword">return</span> al;&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">19</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">		<span class="keyword">if</span> (father[al][i] != father[bl][i]) &#123;</span><br><span class="line">            <span class="comment">//只要是公共祖先那么就向下</span></span><br><span class="line">            <span class="comment">//直到不是公共祖先，那么该点的父亲就是最近公共祖先</span></span><br><span class="line">            <span class="comment">//逆向思维，妙啊§(*￣▽￣*)§</span></span><br><span class="line">			al = father[al][i];</span><br><span class="line">			bl = father[bl][i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> father[bl][<span class="number">0</span>];</span><br><span class="line">	<span class="comment">//朴素:</span></span><br><span class="line">	<span class="comment">// for (int i = 1; i &lt;= x_h; i++) &#123;</span></span><br><span class="line">	<span class="comment">// 	bl = father[bl][0];</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">// for (int i = 1; i &lt; 20; i++) &#123;</span></span><br><span class="line">	<span class="comment">// 	if (al == bl) &#123;return al;&#125;</span></span><br><span class="line">	<span class="comment">// 	al = father[al][0];</span></span><br><span class="line">	<span class="comment">// 	bl = father[bl][0];</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+倍增的基本思想在这里就不再赘述（关键我讲的也不好
+主要就是利用了最大的二进制（不超过界限），不断去逼近（就是，只要不超过就跳最大的，省时省力）
+</em></strong></p>
+<p><strong><code>前方核聚变打击警告！！！__</code></strong>
+：下面就昨天晚上睡不着觉想的…… ### 3. 不怕犯错 *** <img data-src="https://view.moezx.cc/images/2022/09/13/9b187e534c8402f35ba3ba0239630f7b.jpg"
+alt="No.1" /></p>
+<p>新建vis[]判断是否访问过，两个last_place 记录上一次节点。 step 1.
+先用倍增不断向上，直到访问过或者到顶，（按理说，到了根节点也是最坏情况，也算一种访问过）
+*** <img data-src="https://view.moezx.cc/images/2022/09/13/7096a7d3c6b6840425a3b847606cf57d.jpg"
+alt="No.2" /></p>
+<p>step 2.
+然后向下倍增（从小开始），知道两个点分别向下的后的节点不同，再返回上一个相同点。
+从上一个相同点重新开始向下倍增，知道2^0的点不相同，那么当前节点就是最近公共祖先；
+step 3.
+然后就是在边界上处理一下，（感觉也没有快多少，反而更难实现了……QwQ</p>
+<p>没关系，不怕犯错！ ### 小聪明
+把两个孩子到根节点的路径遍历一边，将记录到一个数组中国，
+然后sort一下(应该需要把……) 然后进行伪去重（应该是<code>unique();</code>
+然后直接找最后一个就行嘿嘿……</p>
+<div class="note warning"><p>补：好像 <code>unique();</code> ，不是很行……，手写吧……</p>
+</div>
+<hr />
+<center>
+🍂全文完↩︎
+</center>
+<!-- <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5w9ea1dbqym&amp;m=1&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=1&amp;bv=15" async="async"></script>     -->
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/" title="关于LCA的几个想法">https://deyerong.github.io/2022/09/13/关于LCA的几个想法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>算法</a>
+              <a href="/tags/%E5%9B%BE/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>图</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/11/%E5%9B%9E%E5%AE%B6/" rel="prev" title="way_back_home">
+                  <i class="fa fa-chevron-left"></i> way_back_home
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/" rel="next" title="路过的大佬help me（math or code）QwQ">
+                  路过的大佬help me（math or code）QwQ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>
