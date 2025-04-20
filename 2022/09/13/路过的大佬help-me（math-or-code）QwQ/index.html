@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1.整数拆分 2.屎山代码  P4392 [BOI2007]Sound 静音问题 题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路过的大佬Help Me（math or code）QwQ">
+<meta property="og:url" content="https://deyerong.github.io/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="1.整数拆分 2.屎山代码  P4392 [BOI2007]Sound 静音问题 题解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://view.moezx.cc/images/2018/06/04/v2-3993e42d266e3e73f701491ce19d8265_hd.gif">
+<meta property="og:image" content="https://view.moezx.cc/images/2022/08/01/6b0cb8a41cd07cae46450bcd1a6db225.gif">
+<meta property="article:published_time" content="2022-09-13T07:39:53.000Z">
+<meta property="article:modified_time" content="2022-10-05T09:13:51.613Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="玄学">
+<meta property="article:tag" content="fuck">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://view.moezx.cc/images/2018/06/04/v2-3993e42d266e3e73f701491ce19d8265_hd.gif">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/","path":"2022/09/13/路过的大佬help-me（math-or-code）QwQ/","title":"路过的大佬Help Me（math or code）QwQ"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>路过的大佬Help Me（math or code）QwQ | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">1.整数拆分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">2.屎山代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#p4392-boi2007sound-%E9%9D%99%E9%9F%B3%E9%97%AE%E9%A2%98-%E9%A2%98%E8%A7%A3"><span class="nav-number">2.1.</span> <span class="nav-text">P4392 [BOI2007]Sound 静音问题
+题解</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="路过的大佬Help Me（math or code）QwQ | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          路过的大佬Help Me（math or code）QwQ
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-13 15:39:53" itemprop="dateCreated datePublished" datetime="2022-09-13T15:39:53+08:00">2022-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-05 17:13:51" itemprop="dateModified" datetime="2022-10-05T17:13:51+08:00">2022-10-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img data-src="https://view.moezx.cc/images/2018/06/04/v2-3993e42d266e3e73f701491ce19d8265_hd.gif" alt="afo" border="0" /></p>
+<ul>
+<li><a href="#1整数拆分">1.整数拆分</a></li>
+<li><a href="#2屎山代码">2.屎山代码</a>
+<ul>
+<li><a href="#p4392-boi2007sound-静音问题-题解">P4392 [BOI2007]Sound
+静音问题 题解</a></li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<!-- <i class="fa-sharp fa-solid fa-starfighter-twin-ion-engine-advanced"></i>  -->
+<blockquote class="blockquote-center">
+<p>📧 <a href="linghao167@vip.qq.com">E-mail</a></p>
+
+</blockquote>
+<h2 id="整数拆分">1.整数拆分</h2>
+<details>
+<summary>
+内容详情
+</summary>
+<p>
+<p><img align="right" data-src="https://view.moezx.cc/images/2022/08/01/6b0cb8a41cd07cae46450bcd1a6db225.gif"/></p>
+题目：<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/question/376350348/answer/1538452084">链接</a>
+数列：<a target="_blank" rel="noopener" href="https://oeis.org/A000041">链接</a>
+  看知乎上很多说的，但是 <del>我是蒟蒻</del> 没有看懂 求助 QwQ
+</p>
+</details>
+<h2 id="屎山代码">2.屎山代码</h2>
+<details>
+<summary>
+内容详情
+</summary>
+<p>内容详情 : - 1.<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4392">P4392
+[BOI2007]Sound 静音问题 题解</a> -</p>
+<h3 id="p4392-boi2007sound-静音问题-题解">P4392 [BOI2007]Sound 静音问题
+题解</h3>
+<p>………样例都没有过，最后还是用线段树过的……</p>
+<details>
+<summary>
+code
+</summary>
+<p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">bool</span> pd = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> n, m, c;</span><br><span class="line"><span class="type">int</span> maxn[<span class="number">10000</span>], minn[<span class="number">1000</span>],in[<span class="number">10000</span>];</span><br><span class="line"><span class="type">int</span> downmax[<span class="number">10000</span>], downmin[<span class="number">1000</span>];</span><br><span class="line"><span class="type">int</span> tail_max = <span class="number">0</span>, head_max = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find_max</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (downmax[head_max] + m &lt;= p  &amp;&amp; tail_max &gt;= head_max) &#123;head_max++;&#125;</span><br><span class="line">	<span class="keyword">while</span> (tail_max &gt;= head_max &amp;&amp; x &gt; maxn[tail_max])</span><br><span class="line">	&#123;tail_max--;&#125;</span><br><span class="line">	maxn[tail_max++] = x;</span><br><span class="line">	downmax[tail_max] = p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> tail_min = <span class="number">0</span>, head_min = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find_min</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (downmin[head_min] + m &lt;= p &amp;&amp; tail_min &gt;= head_min ) &#123;head_min++;&#125;</span><br><span class="line">	<span class="keyword">while</span> (tail_min &gt;= head_min &amp;&amp; x &lt; maxn[tail_min])</span><br><span class="line">	&#123;tail_min--;&#125;</span><br><span class="line">	minn[tail_min++] = x;</span><br><span class="line">	downmin[tail_min] = p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;m, &amp;c);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;in[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">find_max</span>(i, in[i]);</span><br><span class="line">		<span class="built_in">find_min</span>(i, in[i]);</span><br><span class="line">		<span class="keyword">if</span> (i &gt;= m) &#123;</span><br><span class="line">			<span class="keyword">if</span> (in[downmax[head_max]] - in[downmin[head_min]] &lt;= c) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, i - m + <span class="number">1</span>);</span><br><span class="line">				pd=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!pd)<span class="built_in">printf</span>(<span class="string">&quot;NONE\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</p>
+</details>
+</details>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/" title="路过的大佬Help Me（math or code）QwQ">https://deyerong.github.io/2022/09/13/路过的大佬help-me（math-or-code）QwQ/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%8E%84%E5%AD%A6/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>玄学</a>
+              <a href="/tags/fuck/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>fuck</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/13/%E5%85%B3%E4%BA%8ELCA%E7%9A%84%E5%87%A0%E4%B8%AA%E6%83%B3%E6%B3%95/" rel="prev" title="关于LCA的几个想法">
+                  <i class="fa fa-chevron-left"></i> 关于LCA的几个想法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/20/%E5%81%9A%E9%A2%98%E5%92%8C%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86QwQ/" rel="next" title="做题和算法整理QwQ">
+                  做题和算法整理QwQ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/09/13/%E8%B7%AF%E8%BF%87%E7%9A%84%E5%A4%A7%E4%BD%AChelp-me%EF%BC%88math-or-code%EF%BC%89QwQ/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

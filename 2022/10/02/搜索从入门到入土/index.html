@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="2022&#x2F;10&#x2F;1听清北，被暴捶了，听不懂，于是来补搜索……QwQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜索从入门到入土">
+<meta property="og:url" content="https://deyerong.github.io/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="2022&#x2F;10&#x2F;1听清北，被暴捶了，听不懂，于是来补搜索……QwQ">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-02T11:26:16.000Z">
+<meta property="article:modified_time" content="2022-11-25T06:31:37.912Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/","path":"2022/10/02/搜索从入门到入土/","title":"搜索从入门到入土"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搜索从入门到入土 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">入门级实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E5%8F%82"><span class="nav-number">2.1.</span> <span class="nav-text">1.传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E7%95%8C%E5%BE%AA%E7%8E%AF%E4%B8%BB%E4%BD%93"><span class="nav-number">2.2.</span> <span class="nav-text">2.边界&amp;循环主体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E8%BF%9B%E4%B8%80%E6%AD%A5"><span class="nav-number">3.</span> <span class="nav-text">再进一步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%89%AA%E6%9E%9D"><span class="nav-number">3.1.</span> <span class="nav-text">优化剪枝</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%A0%A1%E8%BF%9B%E9%98%B6"><span class="nav-number">4.</span> <span class="nav-text">高校进阶🤡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E7%9A%84%E7%BB%93%E5%90%88"><span class="nav-number">5.</span> <span class="nav-text">搜索的结合</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搜索从入门到入土 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搜索从入门到入土
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-02 19:26:16" itemprop="dateCreated datePublished" datetime="2022-10-02T19:26:16+08:00">2022-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-25 14:31:37" itemprop="dateModified" datetime="2022-11-25T14:31:37+08:00">2022-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>2022/10/1听清北，被暴捶了，听不懂，于是来补搜索……QwQ</p>
+<span id="more"></span>
+<p>本来该开始听的时候还觉得挺简单的，但是一到讲题的时候，就很突然啊¿😇😇😇¿，呜呜呜懵逼了¿
+于是，有了这篇<del>狗屌</del>学习笔记🤕🤕🤕</p>
+<hr />
+<h2 id="入门">入门</h2>
+==<strong>定义</strong>==
+<details>
+<summary>
+DFS
+</summary>
+<ul>
+<li>深度优先搜索算法（DFS）</li>
+</ul>
+  是一种用于遍历或搜索树或图的算法。这个算法
+<strong>会尽可能深地搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。</strong>
+这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。这种算法不会根据图的结构等信息调整执行策略。<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>
+</details>
+<details>
+<summary>
+BFS
+</summary>
+<ul>
+<li>广度优先搜索算法（缩写为BFS）</li>
+</ul>
+  是一种图形搜索算法。简单的说，
+<strong>BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。</strong>
+广度优先搜索的实现一般采用open-closed表。 <a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+</details>
+<p>  看了上面的定义我们知道搜索(尤其DFS)多是来两个或多个选择决策的
+  结合记忆化搜索加各种剪枝优化，还有各种搜索模式，启发式，双向搜索……总之搜索是很有趣的很博大精深的。</p>
+<h2 id="入门级实现">入门级实现</h2>
+<p>  DFS一般用<mark>递归</mark>实现。</p>
+<h3 id="传参">1.传参</h3>
+<p>  首先，写DFS的时候我们要先把题目看清（这样好知道我们应该向函数里面传什么值）：
+- 所求的值 - 当前所在的状态 -
+参数，会对<mark>下一轮</mark>递归产生<mark>影响</mark>的参数</p>
+  在这里给道好题(考信息提取&amp;传参数的
+<details id="题面_生日蛋糕">
+<summary>
+<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1731">P1731 [NOI1999]
+生日蛋糕</a>
+</summary>
+<p>
+//点链接，题面等会加
+</p>
+</details>
+<h3 id="边界循环主体">2.边界&amp;循环主体</h3>
+<p>  先上伪代码<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>： <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void dfs()&#123;</span><br><span class="line">	/*1.递归边界</span><br><span class="line">		常见的递归边界有： </span><br><span class="line">		01.坐标越界</span><br><span class="line">		02.搜索到了极限</span><br><span class="line">		03.出现重复搜索，或者不是最优的搜索 </span><br><span class="line">	*/</span><br><span class="line">	</span><br><span class="line">	/*</span><br><span class="line">	2.递归调用的主体，进行决策选择和状态转移，这里一般会用for循环，或者是直接调用两个dfs即可。 </span><br><span class="line">	*/  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  以上伪代码已经说列的比较全了 <a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1731">上题</a>其实就是很适合来练手这个就很适合(简直就是典中典啊)
+等下我先来给大家切一个哈…… （emmm………………）看来是切失败了QwQ
+<del>（误）</del>
+<!-- <details><summary ><a href="/2022/10/02/P1731-NOI1999-生日蛋糕-题解/">code</a></summary></details> --></p>
+<div class="note default"><p><a href="/2022/10/02/P1731-NOI1999-生日蛋糕-题解/">code</a></p>
+</div>
+<h2 id="再进一步">再进一步</h2>
+<h3 id="优化剪枝">优化剪枝</h3>
+<p>  切上题的同学们可能发现了，因为暴搜的复杂度过高，想要过这道题还需要优化，这个优化就叫做<code>剪枝</code>（（（当然优化不止这一种</p>
+<p>  最常用的剪枝有三种，记忆化搜索、最优性剪枝、可行性剪枝 :</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>记忆化搜索</th>
+<th>最优性剪枝</th>
+<th>可行性剪枝</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开一个vis[]来记录重复的结果</td>
+<td>比之前的最优值要差的话，主动放弃递归</td>
+<td>与题意不符的停止递归  你也可以理解为把不能到达终止节点的剪掉</td>
+</tr>
+</tbody>
+</table>
+<p>最优性剪枝: 如果$ f(P)+(p) &gt;
+ans$,就回溯(其中<code>f(p)</code>为当前答案,<code>exp(p)</code>为期望答案(一般设置为零,毕竟难算QwQ))</p>
+<p><a target="_blank" rel="noopener" href="https://new.qq.com/rain/a/20220617A0D99E00">其他优化方式</a>
+:</p>
+<ul>
+<li>排除等效冗余</li>
+<li>启发式</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51449208">迭代加深</a></li>
+<li>随机调整</li>
+<li>状态表示</li>
+<li>双向搜索</li>
+<li>etc. (博大精深啊…… <del>虽然完全用不到的的说</del></li>
+</ul>
+<p>  虽然优化的种类千千万,但是并不要求我们都要掌握,考场上考的也很有限,去做有把握的优化。
+就像 <strong>剪枝</strong>
+也是有平衡点的,过多的低效的剪枝反而增加运算量。要是减错了那更加得不偿失了,尤其是考场更要慎之又慎!</p>
+<h2 id="高校进阶">高校进阶🤡</h2>
+<p>题单(大综合):</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>题目列表</th>
+<th>题目连接</th>
+<th>推荐程度</th>
+<th>理由&amp;备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>棋盘问题</td>
+<td><a target="_blank" rel="noopener" href="http://poj.org/problem?id=1321">POJ</a></td>
+<td>✨✨✨</td>
+<td>很好的入门题</td>
+</tr>
+<tr>
+<td>NOI1999生日蛋糕</td>
+<td><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1731">luogu</a></td>
+<td>✨✨✨✨</td>
+<td>典中典中典·必刷</td>
+</tr>
+<tr>
+<td>Eight(八数码)</td>
+<td><a target="_blank" rel="noopener" href="http://poj.org/problem?id=1077">POJ
+<del>(HDU已经挂了QwQ)</del></a></td>
+<td>✨✨✨</td>
+<td>必刷·思维·打表反向搜</td>
+</tr>
+<tr>
+<td>小木棍</td>
+<td><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1120">luogu</a></td>
+<td>✨✨✨</td>
+<td>多种剪枝·排除等效冗余</td>
+</tr>
+</tbody>
+</table>
+<p>提示:   开始打不出正解剪枝也不要紧,先把暴力打出来</p>
+<p>你就想<a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1120">小木棍</a>就算你只打了(纯)暴力,也能那个20分。总之不要害怕,慢慢来……</p>
+<hr />
+<h2 id="搜索的结合">搜索的结合</h2>
+<p>  这两天做到一道题: <a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1021">邮票采集</a>,是一道很好的题
+可以用这道题来练习DP和搜索的结合！(注意关系的传递)</p>
+<center>
+未完待续……QwQ↩︎
+</center>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li
+id="fn1"><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" >
+[DFS维基百科]</a> ||<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li
+id="fn2"><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">
+[BFS维基百科]</a> ||<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li
+id="fn3"><p><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/625c56fa7cc4ff68e6516854.html" >[dfs刷题模板总结]</a>
+||<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" title="搜索从入门到入土">https://deyerong.github.io/2022/10/02/搜索从入门到入土/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/" rel="prev" title="P1731 [NOI1999] 生日蛋糕 题解">
+                  <i class="fa fa-chevron-left"></i> P1731 [NOI1999] 生日蛋糕 题解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/03/%E8%A7%84%E5%88%92%E4%B8%8E%E6%9C%9F%E6%9C%9B/" rel="next" title="规划与期望">
+                  规划与期望 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

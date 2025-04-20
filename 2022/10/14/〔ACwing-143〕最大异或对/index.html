@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="引用某大佬的话:&quot;好题!&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="〔ACwing 143〕最大异或对">
+<meta property="og:url" content="https://deyerong.github.io/2022/10/14/%E3%80%94ACwing-143%E3%80%95%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="引用某大佬的话:&quot;好题!&quot;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-14T06:56:45.000Z">
+<meta property="article:modified_time" content="2022-10-19T07:08:00.824Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="秒啊">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/10/14/%E3%80%94ACwing-143%E3%80%95%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/10/14/%E3%80%94ACwing-143%E3%80%95%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/","path":"2022/10/14/〔ACwing-143〕最大异或对/","title":"〔ACwing 143〕最大异或对"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>〔ACwing 143〕最大异或对 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">3.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">输入样例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">输出样例：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/10/14/%E3%80%94ACwing-143%E3%80%95%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="〔ACwing 143〕最大异或对 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+  <div class="out-img-topic">
+    <img src=https://view.moezx.cc/images/2022/10/14/b131742d9acea67dd0234ee0df0ba491.jpg class="img-topic">
+  </div>
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          〔ACwing 143〕最大异或对
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-14 14:56:45" itemprop="dateCreated datePublished" datetime="2022-10-14T14:56:45+08:00">2022-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-19 15:08:00" itemprop="dateModified" datetime="2022-10-19T15:08:00+08:00">2022-10-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <center>
+引用某大佬的话:"好题!"
+</center>
+<span id="more"></span>
+<hr />
+<details>
+<summary>
+$ 🔄原题面🔄 $
+</summary>
+<p>在给定的 <span class="math inline">\(N\)</span> 个整数 <span
+class="math inline">\(A_1,A_2,A_……A_N\)</span>,再中间中选出两个进行 $ $
+异或运算，得到的结果最大是多少？</p>
+<h4 id="输入格式">输入格式</h4>
+<p>第一行输入一个整数 <span class="math inline">\(N\)</span></p>
+<p>第二行输入 <span class="math inline">\(N\)</span> 个整数 <span
+class="math inline">\(A_1,A_2,A_……A_N\)</span></p>
+<h4 id="输出格式">输出格式</h4>
+<p>输出一个整数表示答案。</p>
+<h4 id="数据范围">数据范围</h4>
+<p><span class="math inline">\(1\)</span> ≤ <span
+class="math inline">\(N\)</span> ≤ <span
+class="math inline">\(10^5\)</span> ,<br />
+<span class="math inline">\(0\)</span> ≤ <span
+class="math inline">\(A_i\)</span> &lt; <span
+class="math inline">\(2^{21}\)</span></p>
+<h4 id="输入样例">输入样例：</h4>
+<pre><code>3
+1 2 3</code></pre>
+<h4 id="输出样例">输出样例：</h4>
+<pre><code>3</code></pre>
+</details>
+<!-- $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$   -->
+<hr />
+<p>  正文开始,这题一看,正解无从下手,第一时间脑子里是暴力枚举。
+<del>(完了,蒟蒻实锤了)</del></p>
+<p>  于是看了算法标签<del>和题解</del></p>
+<ol type="1">
+<li><p>让我们先看关键字:"异或"。 Q: 那么异或的性质是什么? A:
+把两个数<span
+class="math inline">\(_{\left(10\right)}\)</span>转化为<span
+class="math inline">\(2\)</span>进制的,然后按位(一位一位的)去比较,不相同的位为<code>1</code>,否则为<code>0</code></p></li>
+<li><p>有了合并的法则,而且题目中说要最大,我们就能理所当然的想到贪心:让两个尽可能的大、按位尽可能不想同的进行异或</p></li>
+<li><p>那么该怎么做能? 我们应该优先让
+<mark title="核心思想" >较高位不同</mark>
+举个10进制的例子就号明白了,<code>1999</code>和<code>999</code>后三位同样是<code>9</code>但是前一位才是再大小上起决定作用的。二进制也一样的</p></li>
+</ol>
+<p>如图(我知道丑爆了,别骂了QwQ): <img data-src="https://view.moezx.cc/images/2022/10/14/2bc6c65c1dadd4c9a730628eac3c78ce.md.jpg"
+alt="示意图1" /></p>
+<p>  那么我们要优先遍历靠前的,就应该找一个数据结构把他存起来,还能高效比较各个位。
+理所当然的,那就是字典树(tire)</p>
+<p> 后面的比较就按思想来就行了</p>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> in[maxn];<span class="comment">//记录输入</span></span><br><span class="line"><span class="type">int</span> n,cnt,ans;<span class="comment">//cnt:处理tire的中间遍历</span></span><br><span class="line"><span class="type">int</span> trie[maxn*<span class="number">32</span>][<span class="number">2</span>];<span class="comment">//tire本体,A&lt;2^31,N&lt;10^5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">work</span><span class="params">(<span class="type">int</span> s)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;in[i]);</span><br><span class="line">		<span class="built_in">insert</span>(in[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		ans=<span class="built_in">max</span>(ans,<span class="built_in">work</span>(in[i]));<span class="comment">//没有让我们说那两个异或最大只问了结果</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,ans);</span><br><span class="line">	<span class="comment">//over </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> root=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">31</span>;i&gt;=<span class="number">0</span>;--i)&#123;<span class="comment">//从高到低</span></span><br><span class="line">		<span class="type">int</span> value=(s&gt;&gt;i)&amp;<span class="number">1</span>;<span class="comment">//位运算,取位值</span></span><br><span class="line">		<span class="keyword">if</span> (!trie[root][value])&#123;</span><br><span class="line">			trie[root][value]=++cnt;</span><br><span class="line">		&#125;</span><br><span class="line">		root=trie[root][value];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">work</span><span class="params">(<span class="type">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> root=<span class="number">0</span>,maxn=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">31</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">		<span class="type">int</span> value=(s&gt;&gt;i)&amp;<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (trie[root][!value])&#123;</span><br><span class="line">			maxn=(maxn&lt;&lt;<span class="number">1</span>)|<span class="number">1</span>;</span><br><span class="line">			root=trie[root][!value];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			maxn=(maxn&lt;&lt;<span class="number">1</span>);</span><br><span class="line">			root=trie[root][value];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> maxn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>哎,太菜了,所以写的啰里啰唆的QwQ,大佬请见谅</p>
+<hr />
+<center>
+🍂全文完↩︎
+</center>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/10/14/%E3%80%94ACwing-143%E3%80%95%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/" title="〔ACwing 143〕最大异或对">https://deyerong.github.io/2022/10/14/〔ACwing-143〕最大异或对/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>算法</a>
+              <a href="/tags/%E7%A7%92%E5%95%8A/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>秒啊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/12/USACO16OPEN248-G-%E8%B8%A9%E5%9D%91QwQ/" rel="prev" title="〔USACO16OPEN〕 248 G 踩坑QwQ">
+                  <i class="fa fa-chevron-left"></i> 〔USACO16OPEN〕 248 G 踩坑QwQ
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/15/%F0%9F%8F%80%E7%AF%AE%E7%90%83%E8%81%94%E8%B5%9B-%E9%AB%98%E4%BA%8C/" rel="next" title="🏀篮球联赛(高二)">
+                  🏀篮球联赛(高二) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/10/14/%E3%80%94ACwing-143%E3%80%95%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

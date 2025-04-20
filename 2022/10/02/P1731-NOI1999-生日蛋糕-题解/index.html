@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="题目链接·洛谷 (QwQ,对不起，把题讲难了) 针对搜素传参和剪枝的练习和题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1731 [NOI1999] 生日蛋糕 题解">
+<meta property="og:url" content="https://deyerong.github.io/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="题目链接·洛谷 (QwQ,对不起，把题讲难了) 针对搜素传参和剪枝的练习和题解">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-02T11:10:49.858Z">
+<meta property="article:modified_time" content="2022-10-19T00:24:27.004Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="非正解">
+<meta property="article:tag" content="搜索">
+<meta property="article:tag" content="玄学">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/","path":"2022/10/02/P1731-NOI1999-生日蛋糕-题解/","title":"P1731 [NOI1999] 生日蛋糕 题解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>P1731 [NOI1999] 生日蛋糕 题解 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="P1731 [NOI1999] 生日蛋糕 题解 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+  <div class="out-img-topic">
+    <img src=https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/cover.png class="img-topic">
+  </div>
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P1731 [NOI1999] 生日蛋糕 题解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-02 19:10:49" itemprop="dateCreated datePublished" datetime="2022-10-02T19:10:49+08:00">2022-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-19 08:24:27" itemprop="dateModified" datetime="2022-10-19T08:24:27+08:00">2022-10-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <!-- https://view.moezx.cc/images/2022/10/03/691e5a39032c1b40ce364d7fc9e55717.png -->
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1731">题目链接·洛谷</a>
+(QwQ,对不起，把题讲难了)</p>
+<p>针对搜素传参和剪枝的练习和题解</p>
+<span id="more"></span>
+<h3 id="前言">前言</h3>
+<p>  当我们做一道题的时候首先要认真读题是吧
+<del>（该不会有不是的吧QwQ</del></p>
+<p>  首先让我们看看这道题的题面：</p>
+<details>
+<summary>
+题面
+</summary>
+<p>题目描述</p>
+<p>7 月 17 日是 Mr.W 的生日，ACM-THU 为此要制作一个体积为 <span
+class="math inline">\(N\pi\)</span> 的 <span
+class="math inline">\(M\)</span> 层生日蛋糕，每层都是一个圆柱体。</p>
+<p>设从下往上数第 <span class="math inline">\(i\)</span>（<span
+class="math inline">\(1 \leq i \leq M\)</span>）层蛋糕是半径为 <span
+class="math inline">\(R_i\)</span>，高度为 <span
+class="math inline">\(H_i\)</span> 的圆柱。当 <span
+class="math inline">\(i \lt M\)</span> 时，要求 <span
+class="math inline">\(R_i \gt R_{i+1}\)</span> 且 <span
+class="math inline">\(H_i \gt H_{i+1}\)</span>。</p>
+<p>由于要在蛋糕上抹奶油，为尽可能节约经费，我们希望蛋糕外表面（最下一层的下底面除外）的面积
+<span class="math inline">\(Q\)</span> 最小。</p>
+<p>请编程对给出的 <span class="math inline">\(N\)</span> 和 <span
+class="math inline">\(M\)</span>，找出蛋糕的制作方案（适当的 <span
+class="math inline">\(R_i\)</span> 和 <span
+class="math inline">\(H_i\)</span> 的值），使 <span
+class="math inline">\(S=\dfrac{Q}{\pi}\)</span> 最小。</p>
+<p>（除 <span class="math inline">\(Q\)</span>
+外，以上所有数据皆为正整数）</p>
+<p>输入：</p>
+<p>  第一行为一个整数 <span class="math inline">\(N\)</span>（<span
+class="math inline">\(N \leq 2 \times
+10^4\)</span>），表示待制作的蛋糕的体积为 <span
+class="math inline">\(N\pi\)</span>。</p>
+<p>第二行为 <span class="math inline">\(M\)</span>（<span
+class="math inline">\(M \leq 15\)</span>），表示蛋糕的层数为 <span
+class="math inline">\(M\)</span>。</p>
+<p>输出：输出一个整数 <span
+class="math inline">\(S\)</span>，若无解，输出 <span
+class="math inline">\(0\)</span>。</p>
+<p>样例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">100</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">68</span><br></pre></td></tr></table></figure>
+</details>
+<hr />
+<p>  根据之前的<a
+href="/2022/10/02/搜索从入门到入土/">文章</a>中提到的寻找的参数的方式，让我们来找一下:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />边界</label></li>
+<li><label><input type="checkbox" />搜索极限</label></li>
+<li><label><input
+type="checkbox" />会对下一层递归产生影响的参数</label></li>
+<li><label><input
+type="checkbox" />剪枝（可选，但是咱们就是来练剪枝的啊QwQ）</label></li>
+</ul>
+<p>  那么我们能很轻松的找到如下</p>
+<p>  <span
+class="math inline">\(层数(X)，上一层的半径(R)，上一层高度(H)，现在的总面积(S)，剩余的体积(V)\)</span>这几个参数；这些就够了。让我们边做边练。</p>
+<p>  刚开始做的时候，我们在写<span
+class="math inline">\(DFS\)</span>的时候发现，我们应该传一个什么样的初值进去呢(自下而上的(<strong>物理上的</strong>))？？？
+(<span
+class="math inline">\(ps:\)</span>你要自上而下，那么你的枚举下届是什么呢？？？)</p>
+<p>  so,让我们再看题目(仔细琢磨) 题目中说每一层的的<span
+class="math inline">\(H\)</span>和<span
+class="math inline">\(R\)</span>都比下层（物理上的）要小的 || 而且 ||
+他还对层数进行了要求。</p>
+<p>  🧐也就是说再应该有层数的地方<span
+class="math inline">\(H\)</span>和<span class="math inline">\(R\)</span>
+应该 $ ≧ 1$ (要是为零的不就是不存在嘛QwQ那么就无法满足层数了)
+于是乎，我们应该再每层都为上层而考虑，而且又要考虑最小的话，那么我们只要让每一层差值都为一，<mark>到最顶层刚好停止就行了</mark>。</p>
+<p>  我们可得 <span
+class="math display">\[每层的高度(H)和半径(R)最小为层数(X)\]</span>
+  由上则有体积的最小范围（后面剪枝会用到的 <span
+class="math display">\[每层最小体积为层数(X)的三次方(r^{2} \times h = X
+\times X \times X = X^3)\]</span> 由上我们就能写出代码了
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">int</span> min_V[<span class="number">100000</span>],minn=<span class="number">0x7fffffff</span>;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="comment">//层数，上一层的半径，上一层高度，现在的总面积，剩余的体积</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> X,<span class="type">int</span> R,<span class="type">int</span> H,<span class="type">int</span> S,<span class="type">int</span> V)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (V&lt;<span class="number">0</span>)<span class="keyword">return</span> ;</span><br><span class="line">	<span class="keyword">if</span> (X&lt;<span class="number">0</span>)<span class="keyword">return</span> ;	</span><br><span class="line">	<span class="keyword">if</span> (X==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span> (V==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S&gt;minn)</span><br><span class="line">                minn=S;</span><br><span class="line">            &#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="type">int</span> i=R<span class="number">-1</span>;i&gt;=X;i--)&#123;<span class="comment">//;枚举下一层半径</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">register</span> <span class="type">int</span> j=H<span class="number">-1</span>;j&gt;=X;j--)&#123;<span class="comment">//枚举下一次高度</span></span><br><span class="line">			<span class="keyword">if</span> (X==m)&#123;S=i*i;&#125;</span><br><span class="line">			<span class="built_in">dfs</span>(X<span class="number">-1</span>,i,j,S+<span class="number">2</span>*j*i,V-i*i*j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//	freopen(&quot;in.txt&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="built_in">dfs</span>(m,(<span class="type">int</span>)<span class="built_in">sqrt</span>(n/m),n/(m*m),<span class="number">0</span>,n);</span><br><span class="line">	<span class="keyword">if</span> (minn==<span class="number">0x7fffffff</span>)&#123;<span class="built_in">printf</span>(<span class="string">&quot;-1\n&quot;</span>);<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,minn);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>ヾ(≧▽≦*)o,好耶，为能能看到这里的鼓掌。
+但是，到这里也还是不能全A的，我们再之上要进行<code>剪枝&amp;优化</code></p>
+<blockquote>
+<pre><code>      `for(register int i=1;i&lt;=m;i++)&#123;min_V[i]=i*i*i;&#125;`</code></pre>
+</blockquote>
+<p>[^1]</p>
+<blockquote>
+<pre><code>      `if (V-i*i*j&lt;min_V[X-1])&#123;continue;&#125;`</code></pre>
+</blockquote>
+<p>[^2]</p>
+<blockquote>
+<pre><code>      `if (S+2*j*i&gt;=minn)&#123;continue;&#125;`</code></pre>
+</blockquote>
+<p>[^3]</p>
+<blockquote>
+<pre><code>      `if (S+2*(V-i*i*j)/(i)&gt;minn)continue;`</code></pre>
+</blockquote>
+<p>[^4]</p>
+<p>以上剪枝是什么意思呢，emmm……先自己思考3分钟；(其实我这里为了提速把他放在for循环里了比较，可能看的不是很使用可以把他翻译汉字更好理解)</p>
+<hr />
+<p>ok，开始讲解： <!--  --> [^1] : 预处理出每一层最小体积</p>
+<p>[^2] : 如果下一层的题解小于最小体积,不合法，返回</p>
+<p>[^3] :
+如果下一次出来的表面积大于最小值，就算不是最后一层那也不用递归了，因为最后的结构一定大于历史最小值（还要可以把前面的判断<code>if(S&gt;minn)</code>省略掉了,没有必要了）</p>
+<p>[^4] :
+这个<code>2*(V-i*i*j)/(i)</code>是通过公式推出本层的侧面积，但是用的下一层的半径和高度，所以回更小，如果这个剪枝就是很玄学啊,剪得是最底一层(也就是本层)的表面，到后面貌似没有什么用（我写到这里才发现，但是不加就过不了QwQ，如有大佬，请到<a
+href="/2022/09/13/路过的大佬help-me（math-or-code）QwQ/">这里</a>）
+公式如下</p>
+<p><span class="math display">\[\begin{align*}
+\\2  R \times H = C_侧面积①
+\\R^2 \times H =V_当前层②
+\end{align*}\]</span> 然后又②可得<span class="math display">\[H=
+\frac{V}{R^2} ③\]</span></p>
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mfrac><mrow><mn>2</mn><mi>V</mi></mrow><mi>R</mi></mfrac><mo>=</mo><msub><mi>C</mi><mrow><mo>侧面积</mo></mrow></msub></math></p>
+<p>于是就有了以上代码…… 就先到此执笔，等有人催更了我再补……咕咕咕</p>
+<hr />
+<center>
+🍂全文完ヾ(≧▽≦*)o↩︎
+</center>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/" title="P1731 [NOI1999] 生日蛋糕 题解">https://deyerong.github.io/2022/10/02/P1731-NOI1999-生日蛋糕-题解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%9E%E6%AD%A3%E8%A7%A3/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>非正解</a>
+              <a href="/tags/%E6%90%9C%E7%B4%A2/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>搜索</a>
+              <a href="/tags/%E7%8E%84%E5%AD%A6/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>玄学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="prev" title="快速幂">
+                  <i class="fa fa-chevron-left"></i> 快速幂
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/02/%E6%90%9C%E7%B4%A2%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/" rel="next" title="搜索从入门到入土">
+                  搜索从入门到入土 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

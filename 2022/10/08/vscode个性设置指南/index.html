@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="国庆集训后放假了(其实就一天QwQ)，在家没事可做(怎么可能QwQ) 于是开始折腾VS code了，但是我不是主用sublime吗QwQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vscode个性设置指南">
+<meta property="og:url" content="https://deyerong.github.io/2022/10/08/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="国庆集训后放假了(其实就一天QwQ)，在家没事可做(怎么可能QwQ) 于是开始折腾VS code了，但是我不是主用sublime吗QwQ">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-08T03:24:49.000Z">
+<meta property="article:modified_time" content="2022-10-19T00:25:12.467Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="美化">
+<meta property="article:tag" content="vscode">
+<meta property="article:tag" content="折腾">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/10/08/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/10/08/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/","path":"2022/10/08/vscode个性设置指南/","title":"Vscode个性设置指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vscode个性设置指南 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E4%B8%8A%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">先上最终效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-number">1.1.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%AB%E9%85%B7%E5%8F%AF%E7%88%B1%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">炫酷(可爱)的主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AE%BE%E7%BD%AE%E5%90%8C%E4%B8%8A"><span class="nav-number">1.3.</span> <span class="nav-text">控制台设置同上</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/10/08/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Vscode个性设置指南 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+  <div class="out-img-topic">
+    <img src=https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/cover.jpg class="img-topic">
+  </div>
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vscode个性设置指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-08 11:24:49" itemprop="dateCreated datePublished" datetime="2022-10-08T11:24:49+08:00">2022-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-19 08:25:12" itemprop="dateModified" datetime="2022-10-19T08:25:12+08:00">2022-10-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>国庆集训后放假了(其实就一天QwQ)，在家没事可做(怎么可能QwQ)</p>
+<p>于是开始折腾VS code了，但是我不是主用sublime吗QwQ</p>
+<span id="more"></span>
+<hr />
+<h2 id="先上最终效果">先上最终效果</h2>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/%E6%95%88%E6%9E%9C%E5%9B%BE.png"
+alt="效果图" />
+<figcaption aria-hidden="true">效果图</figcaption>
+</figure>
+<h3 id="字体">字体</h3>
+<p>  首先肯定是我们的字体: 这方面网上的配置也很多,例如<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/557514313">这个</a></p>
+<p>  我这里首推的字体为 <span class="math inline">\(MonoLisa\)</span> 和
+<span class="math inline">\(Consolas\)</span>
+这两个字体是真的香啊。那么就有小伙伴问怎么搞这两个字体呢？</p>
+<p>首先第二个自带我就不细说了QwQ。上网上一找，看看了第一个的价格(开发者)......直接劝退
+<img data-src="https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/MonoLisa%E4%BB%B7%E6%A0%BC.png"
+alt="MonoLisa价格" /></p>
+<p>  但是也不能直接放弃,于是乎,我找到了一个<a
+target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1534436-1-1.html">帖子</a>
+有坛友发帖给了字体(QwQ太感谢了QwQ</p>
+<p>  安装字体应该不用我教,<del>不会自行度娘</del></p>
+<p>  设置流程 :</p>
+<p>  设置--&gt;工作区(如果不行就用户也设置)--&gt;文本编辑器--&gt;字体--&gt;<code>Font Family</code>--&gt;key</p>
+<p>  我的理解是可以放多个字体,分语言,最后的<code>monospace</code>是等宽的意思。这里选择这个中文字体QwQ是因为它能和上两个字体很好的适配，而且不会出现潦草看不清QwQ</p>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/%E6%B5%81%E7%A8%8B%E5%9B%BE1.png"
+alt="流程图1" />
+<figcaption aria-hidden="true">流程图1</figcaption>
+</figure>
+<h3 id="炫酷可爱的主题">炫酷(可爱)的主题</h3>
+<p>1.发光主题</p>
+<p>  首先我们需要一个炫酷的发光主题 <code>SynthWave '84</code>
+这款主题直接在VScode的插件里就有QwQ</p>
+<p>2.然后是配置霓虹(可爱(●'◡'●))效果</p>
+<p>  这里需要配置插件 <code>Custom CSS and JS Loader</code>
+方法同上。然后可以直接该样式就行了QwQ</p>
+<p>  这里找到了网上配置好的仓库,下载下来配置就行了<a
+target="_blank" rel="noopener" href="https://github.com/Jinkeycode/vscode-transparent-glow">Github链接</a>
+仓库的的说明文件也很全面了,这里我再演示一边QwQ</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/Jinkeycode/vscode-transparent-glow">链接</a>--&gt;<code>code</code>--&gt;<code>Download ZIP</code>--&gt;解压(建议VScode安装目录)--&gt;</p>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/%E6%B5%81%E7%A8%8B%E5%9B%BE2.jpg"
+alt="流程图2" />
+<figcaption aria-hidden="true">流程图2</figcaption>
+</figure>
+<p>打开setting.json(设置中有) 加入配置 加入</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> &quot;vscode<span class="built_in">_</span>custom<span class="built_in">_</span>css.policy&quot;: true,</span><br><span class="line"> &quot;terminal.integrated.rendererType&quot;: &quot;dom&quot;,</span><br><span class="line"> &quot;workbench.colorTheme&quot;: &quot;SynthWave &#x27;84&quot;,</span><br><span class="line">&quot;vscode<span class="built_in">_</span>custom<span class="built_in">_</span>css.imports&quot;: [</span><br><span class="line">     &quot;file:///Users/lindaidai/config/vscode-transparent-theme/vscode-vibrancy-style.css&quot;,</span><br><span class="line">     &quot;file:///Users/lindaidai/config/vscode-transparent-theme/synthwave84-noglow.css&quot;,</span><br><span class="line">     &quot;file:///Users/lindaidai/config/vscode-transparent-theme/toolbar.css&quot;,</span><br><span class="line">     &quot;file:///Users/lindaidai/config/vscode-transparent-theme/terminal.css&quot;,</span><br><span class="line">     &quot;file:///Users/lindaidai/config/vscode-transparent-theme/enable-electron-vibrancy.js&quot;</span><br><span class="line"> ],</span><br></pre></td></tr></table></figure>
+<p> 注意点:
+有<code>&#123;&#125;</code>的在里面加,文件的<code>file://</code>不能省，后面加绝对路径,(如果你会JSON,当我没说QwQ</p>
+<h3 id="控制台设置同上">控制台设置同上</h3>
+<hr />
+<p>  大部分是在网上学的QwQ,赋几个主要链接</p>
+<figure>
+<img data-src="https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/%E6%8E%A8%E8%8D%90%E7%BD%91%E7%AB%991.jpg"
+alt="特全的VScode的个性配置网站(外文)" />
+<figcaption
+aria-hidden="true">特全的VScode的个性配置网站(外文)</figcaption>
+</figure>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://themes.vscode.one/">特全的VScode的个性配置网站(外文)</a></p>
+</blockquote>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://juejin.cn/post/6844903870670323719">这里还有教加立绘的</a></p>
+</blockquote>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/shallow72/article/details/121557619">等宽字体问题</a></p>
+</blockquote>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/557514313">推荐字体<del>其实上文就有</del></a></p>
+</blockquote>
+<hr />
+<center>
+🍂未完待续，咕咕咕↩︎
+</center>
+<!-- cover -->
+<!-- https://view.moezx.cc/images/2022/10/08/8a01842a4ea2434f53c8f921621f57a6.jpg -->
+<!-- ![MonoLisa价格](https://view.moezx.cc/images/2022/10/08/c83b16cfd1b6fff6778a0d9949103447.png) -->
+<!-- 效果图 -->
+<!-- https://view.moezx.cc/images/2022/10/08/eace6bf4f8615727875222f9b213dbd0.png -->
+<!-- 流程图1 -->
+<!-- https://view.moezx.cc/images/2022/10/08/1f72a6e0047ffc2363ba65919215488d.png -->
+<!-- 流程图2 -->
+<!-- https://view.moezx.cc/images/2022/10/08/2868329c44263823196aa2a3047d63de.jpg -->
+<!-- 推荐网站1 -->
+<!-- https://view.moezx.cc/images/2022/10/08/813dff3c40f83f82af7550fc28cfba82.jpg -->
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/10/08/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/" title="Vscode个性设置指南">https://deyerong.github.io/2022/10/08/vscode个性设置指南/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>美化</a>
+              <a href="/tags/vscode/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>vscode</a>
+              <a href="/tags/%E6%8A%98%E8%85%BE/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>折腾</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/05/%E4%B9%90%E5%9B%AD%E6%B8%B8%E8%AE%B0/" rel="prev" title="乐园游记">
+                  <i class="fa fa-chevron-left"></i> 乐园游记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/09/%E7%AA%A5%E8%A7%86%E4%B8%87%E5%8D%8E%E9%95%9C1/" rel="next" title="窥视万华镜1">
+                  窥视万华镜1 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/10/08/vscode%E4%B8%AA%E6%80%A7%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

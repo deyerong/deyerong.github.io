@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="由于我没看网上的分析，于是我看了看思想自己写了一份QwQ   不保证你能看懂 反正也没有人看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速幂">
+<meta property="og:url" content="https://deyerong.github.io/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="由于我没看网上的分析，于是我看了看思想自己写了一份QwQ   不保证你能看懂 反正也没有人看">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-29T08:53:59.000Z">
+<meta property="article:modified_time" content="2022-10-19T00:21:44.697Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="快速幂">
+<meta property="article:tag" content="思想">
+<meta property="article:tag" content="分治">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/","path":"2022/09/29/快速幂/","title":"快速幂"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>快速幂 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E4%BA%8E%E6%88%91%E6%B2%A1%E7%9C%8B%E7%BD%91%E4%B8%8A%E7%9A%84%E5%88%86%E6%9E%90%E4%BA%8E%E6%98%AF%E6%88%91%E7%9C%8B%E4%BA%86%E7%9C%8B%E6%80%9D%E6%83%B3%E8%87%AA%E5%B7%B1%E5%86%99%E4%BA%86%E4%B8%80%E4%BB%BDqwq"><span class="nav-number">1.</span> <span class="nav-text">由于我没看网上的分析，于是我看了看思想自己写了一份QwQ</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E5%81%9A%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">朴素做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">快速幂法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%E7%8E%B0%E5%9C%A8%E8%AE%A9%E6%88%91%E4%BB%AC%E5%88%86%E5%88%AB%E7%94%A8%E9%80%92%E5%BD%92%E5%92%8C%E5%BE%AA%E7%8E%AF%E6%9D%A5%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">那么现在让我们分别用递归和循环来实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E6%91%A9%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0%E7%B2%BE%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">观摩代码，学习精进</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="快速幂 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          快速幂
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-29 16:53:59" itemprop="dateCreated datePublished" datetime="2022-09-29T16:53:59+08:00">2022-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-19 08:21:44" itemprop="dateModified" datetime="2022-10-19T08:21:44+08:00">2022-10-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3
+id="由于我没看网上的分析于是我看了看思想自己写了一份qwq">由于我没看网上的分析，于是我看了看思想自己写了一份QwQ</h3>
+<p>  不保证你能看懂 <del>反正也没有人看</del></p>
+<span id="more"></span>
+<h2 id="朴素做法">朴素做法</h2>
+  首先先让我们看看朴素的做法 就说我们平时的一个<code>for</code>的方式
+<span class="math inline">\(eg:\)</span> <span
+class="math display">\[2^7=2^1*2^1*2^1*2^1*2^1*2^1*2^1\]</span>
+很明显这样是<span class="math inline">\(O\left (N \right)\)</span>的
+<pre class="mermaid">graph TD;
+    A(( $2^7$ ))-->B((2^6));
+    A(( 2^7 ))-->C((2^1))
+    B(( 2^6 ))-->D((2^5));
+    B(( 2^6 ))-->E((2^1))
+    D((2^5))---->S((2^1))
+    D((2^5))--->F((.....))</pre>
+<p>  剩下的省略，<del>绝对不是因为懒( ﾟдﾟ)つBye</del></p>
+<h2 id="快速幂法">快速幂法</h2>
+  然后是快速幂做法 ### 二话不说先上图
+<pre class="mermaid">graph LR;
+    A(( $2^7$ ))--->B((2^6));
+    A(( 2^7 ))--->C((2^1)) --> I;
+    B(( 2^6 ))--->D((2^3));
+    B(( 2^6 ))--->E((2^3)) --> F;
+    D((2^3))-->S((2^1)) -->I;
+    D((2^3))--->F((2^2));
+    F((2^2)) --> G((2^1)) & H((2^1)) --> I((2^0));</pre>
+<hr />
+  上图是不是非常好理解啊……ƪ(˘⌣˘)ʃ
+<details>
+<summary>
+<p><del>被暴打后，口吐白沫</del></p>
+</summary>
+<figure>
+<img data-src="https://view.moezx.cc/images/2022/09/29/6578ba03a0fd3720f0cc64f604c77d73.gif"
+alt="被暴揍.gif" />
+<figcaption aria-hidden="true">被暴揍.gif</figcaption>
+</figure>
+</details>
+<hr />
+<p>配图如下 <img data-src="https://cdn.jsdelivr.net/gh/deyerong/deyerong.github.io@main/images/JS-speedup/%E5%BF%AB%E9%80%9F%E5%B9%82/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%A4%BA%E6%84%8F%E5%9B%BE3.jpg"
+alt="快速幂示意图3.jpg" />
+<!-- ![快速幂示意图3.jpg](https://view.moezx.cc/images/2022/09/29/9af3621bac337275da9891f6565c9eae.jpg) --></p>
+<p>  在这里我们分法不再是1，1，1的分了； 而是尽可能的把大数二分小数
+对于偶数，我们直接二分 $ eg:$ <span class="math inline">\(\qquad 2^8=2^4
+\times 2^4\)</span> <span class="math inline">\(\qquad \quad \; \:
+\;  2^9=2^8 \times 2^1\)</span> 其实思想就这些,是不是很简单</p>
+<p>  那么他的理想复杂度应为<span class="math inline">\(O\left (\log_2 N
+\right)\)</span></p>
+<h3
+id="那么现在让我们分别用递归和循环来实现">那么现在让我们分别用递归和循环来实现</h3>
+<p>（先别走，后面有大量示例代码）</p>
+<p><span class="math inline">\(\text{PS:
+}\)</span>一般的题面都会让你取模，再这里统统省略……</p>
+<!-- 递归 -->
+<details>
+<summary>
+递归法
+</summary>
+<p>  看下面的代码就说把思想的BF实现啊 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">power_operate</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">   <span class="type">int</span> ans=<span class="number">1</span>;</span><br><span class="line">   <span class="keyword">if</span> (m&amp;<span class="number">1</span>)&#123;    <span class="comment">//判断是不是奇数</span></span><br><span class="line">       ans=ans*x;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> (m)&#123;</span><br><span class="line">       ans*=<span class="built_in">quick_power_operate</span>(x,m&gt;&gt;<span class="number">1</span>)*<span class="built_in">quick_power_operate</span>(x,m&gt;&gt;<span class="number">1</span>);    <span class="comment">//这里没有任何优化，直接BF思想向下递归</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  让我们测试一下，看看 <span class="math inline">\(eg:\)</span> $^{10}
+$</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1024</span><br><span class="line">--------------------------------</span><br><span class="line">Process exited after 0.4793 seconds with return value 0</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\qquad \quad \; \:
+\;  3^{11}\)</span></p>
+<p>  为什么选11次方呢，以为太大了就爆掉了啊……QwQ <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">177147</span><br><span class="line">--------------------------------</span><br><span class="line">Process exited after 0.4788 seconds with return value 0</span><br></pre></td></tr></table></figure>
+取个模再来一次 <span class="math inline">\(\qquad \quad \; \:
+\;  3^{99999999}\)</span></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 的 99999999 次方  模数: 1000</span><br><span class="line">667</span><br><span class="line">--------------------------------</span><br><span class="line">Process exited after 7.806 seconds with return value 0</span><br></pre></td></tr></table></figure>
+</details>
+<!-- 循环 -->
+<details>
+<summary>
+循环
+</summary>
+<p>  这里是不是从上向下的实现，而是从下向上的
+<code>这里我还是建议你自己手动debug一下的</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">quick_power_operate</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		<span class="keyword">if</span> (m&amp;<span class="number">1</span>)&#123;</span><br><span class="line">			ans=ans*x;</span><br><span class="line">		&#125;</span><br><span class="line">			x=xx;</span><br><span class="line">		y&gt;&gt;=<span class="number">1</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  来，让我们那开头的那个例子来吧: <span
+class="math inline">\(2^7\)</span></p>
+<details>
+<p>  这里一步先判断它是不是奇数，是就把它处理为偶数(判断奇数，二进制末尾为<code>1</code>)</p>
+<pre class="mermaid">graph TB;
+    A(( $2^7$ )) --- B((2^6));
+    A(( 2^7 )) --- C((2^1));
+     A -.step_1.-> C
+    B(( 2^6 )) --- E((2^3)) ;
+    B(( 2^6 )) --- D((2^3));
+    D((2^3)) --- S((2^1)) ;
+    D((2^3)) --- F((2^2));
+    E --- G((2^2)) & H((2^1))
+    G --- I((2^1)) & K((2^1));
+    F((2^2)) --- L((2^1)) & M((2^1));</pre>
+<hr />
+<p>  变成偶数就简单了，从下<code>base</code>(即为底数，这里是2)开始自乘
+我这里只画一条线，因为本质就一条……TAT ***</p>
+<pre class="mermaid">graph TB;  
+    A(( $2^7$ )) --- B((2^6));  
+    A(( 2^7 )) --- C((2^1));  
+     C -.step_1.-> A  
+    B(( 2^6 )) --- E((2^3)) ; 
+    B(( 2^6 )) --- D((2^3)); 
+    E --- G((2^2)) & H((2^1));  
+    D((2^3)) --- S((2^1)) ;
+    D((2^3)) --- F((2^2));  
+    F((2^2)) --- L((2^1)) & M((2^1));  
+    G --- I((2^1)) & K((2^1));  
+    I -.step_2.-> G   ;
+    G -.step_3.-> E  ;
+    E -.step_4.-> B  ;
+    B -.step_5.-> A ;</pre>
+<p>上图一键说的很明白了 <del>(你永远也想不到，这个图有多难调QwQ)</del>
+<span class="math display">\[2^1 \times 2^1 = 2^2 等等\]</span></p>
+</details>
+<p>让我们测试一下，看看</p>
+<p><span class="math inline">\(eg:\)</span> $2^{10} $</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">24</span><br><span class="line">--------------------------------</span><br><span class="line">Process exited after 0.4149 seconds with return value 0</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\qquad \quad \; \:
+\;  3^{11}\)</span></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">177147</span><br><span class="line">--------------------------------</span><br><span class="line">Process exited after 0.4981 seconds with return value 0</span><br></pre></td></tr></table></figure>
+<p>取个模再来一次 <span class="math inline">\(\qquad \quad \, \,
+\,  3^{99999999}\)</span></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 的 99999999 次方  模数: 1000</span><br><span class="line">667</span><br><span class="line">--------------------------------</span><br><span class="line">Process exited after 0.4642 seconds with return value 0</span><br></pre></td></tr></table></figure>
+我们能看出来，一但数一大，递归和循环的效率就有云泥之别了
+</details>
+<h3 id="观摩代码学习精进">观摩代码，学习精进</h3>
+<code>以下代码皆来自洛谷参加代码公开的用户，侵删</code>
+<details>
+<summary>
+展开
+</summary>
+<p>message：$24ms ; 784.00KB ; 295B $</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a,b,p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">power</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> z)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(y == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> tmp = <span class="built_in">power</span>(x,y/<span class="number">2</span>,z)%z;</span><br><span class="line">	<span class="keyword">return</span> tmp*tmp%z*(y%<span class="number">2</span>?x:<span class="number">1</span>)%z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;p);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d^%d mod %d=%d&quot;</span>,a,b,p,<span class="built_in">power</span>(a%p,b,p));</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<hr />
+<!--  -->
+<details>
+<summary>
+展开
+</summary>
+<p>message：$24ms ; 808.00KB ; 343B $</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a,b,p;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qp</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(y==<span class="number">1</span>)<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">if</span>(x==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(y==<span class="number">1</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	ll tmp=<span class="built_in">qp</span>(x,y/<span class="number">2</span>);</span><br><span class="line">	ll ans=tmp*tmp;</span><br><span class="line">	ans%=p; </span><br><span class="line">	<span class="keyword">if</span>(y%<span class="number">2</span>==<span class="number">1</span>)ans*=x;ans%=p;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b&gt;&gt;p;</span><br><span class="line">	cout&lt;&lt;a&lt;&lt;<span class="string">&quot;^&quot;</span>&lt;&lt;b&lt;&lt;<span class="string">&quot; mod &quot;</span>&lt;&lt;p&lt;&lt;<span class="string">&quot;=&quot;</span>&lt;&lt;<span class="built_in">qp</span>(a,b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!--  -->
+</details>
+<hr />
+<details>
+<summary>
+展开
+</summary>
+<p>message：$26ms ; 808.00KB ; 260B $</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">int</span> a, b, mod;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll x, ll y)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y &amp; <span class="number">1</span>) res = res * x % mod;</span><br><span class="line">        x = x * x % mod;</span><br><span class="line">        y &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; mod;</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; <span class="string">&#x27;^&#x27;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; mod &quot;</span> &lt;&lt; mod &lt;&lt; <span class="string">&#x27;=&#x27;</span> &lt;&lt; <span class="built_in">qpow</span>(a, b) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<hr />
+<center>
+🍂全文完↩︎
+</center>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/" title="快速幂">https://deyerong.github.io/2022/09/29/快速幂/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>算法</a>
+              <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>快速幂</a>
+              <a href="/tags/%E6%80%9D%E6%83%B3/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>思想</a>
+              <a href="/tags/%E5%88%86%E6%B2%BB/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>分治</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/20/%E5%81%9A%E9%A2%98%E5%92%8C%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86QwQ/" rel="prev" title="做题和算法整理QwQ">
+                  <i class="fa fa-chevron-left"></i> 做题和算法整理QwQ
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/02/P1731-NOI1999-%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95-%E9%A2%98%E8%A7%A3/" rel="next" title="P1731 [NOI1999] 生日蛋糕 题解">
+                  P1731 [NOI1999] 生日蛋糕 题解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/09/29/%E5%BF%AB%E9%80%9F%E5%B9%82/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

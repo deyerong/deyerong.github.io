@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+<link rel="preconnect" href="/fonts/" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
+  <link rel="mask-icon" href="/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/fonts//css?family=Consolas:300,300italic,400,400italic,700,700italic%7C我的可爱有目共睹:300,300italic,400,400italic,700,700italic%7C微软雅黑:300,300italic,400,400italic,700,700italic%7Cmonolisa:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"deyerong.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="I LOVE　STL(深度调教) 本文默认数组从1开始用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL的几个中用的功能">
+<meta property="og:url" content="https://deyerong.github.io/2022/10/19/STL%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%AD%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD/">
+<meta property="og:site_name" content="Deyerong">
+<meta property="og:description" content="I LOVE　STL(深度调教) 本文默认数组从1开始用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-19T14:02:20.000Z">
+<meta property="article:modified_time" content="2022-11-08T09:27:26.632Z">
+<meta property="article:author" content="德叶荣">
+<meta property="article:tag" content="奇技淫巧">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://deyerong.github.io/2022/10/19/STL%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%AD%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://deyerong.github.io/2022/10/19/STL%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%AD%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD/","path":"2022/10/19/STL的几个中用的功能/","title":"STL的几个中用的功能"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>STL的几个中用的功能 | Deyerong</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Deyerong</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/icon.png" alt="Deyerong">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">37</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">41</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+<div id="music_player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=535048794&auto=1&height=66"></iframe>
+</div>
+
+
+
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">总录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mt19937"><span class="nav-number">2.</span> <span class="nav-text">mt19937</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nth_element"><span class="nav-number">3.</span> <span class="nav-text">nth_element</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector"><span class="nav-number">4.</span> <span class="nav-text">vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#binary_search-lower_bound-upper_bound"><span class="nav-number">5.</span> <span class="nav-text">binary_search &amp;
+lower_bound &amp; upper_bound</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+      <img class="site-author-image" itemprop="image" alt="德叶荣"
+        src="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+    </a>
+  <p class="site-author-name" itemprop="name">德叶荣</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/deyerong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;deyerong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wpa.qq.com/msgrd?V=3&Uin=2073293614" title="QQ → https:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?V&#x3D;3&amp;Uin&#x3D;2073293614" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1670350532@qq.com" title="E-Mail → mailto:1670350532@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/742571" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;742571" rel="noopener" target="_blank"><i class="fa fa-code fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/630850507" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;630850507" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/odin-intj" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;odin-intj" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="/decalvin.tk" title="decalvin.tk">DeCalvin</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://deyerong.github.io/2022/10/19/STL%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%AD%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cravatar.cn/avatar/887be49a581d0ed87aa2197eedd873bc">
+      <meta itemprop="name" content="德叶荣">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="STL的几个中用的功能 | Deyerong">
+      <meta itemprop="description" content="">
+    </span>
+    
+  <div class="out-img-topic">
+    <img src=https://view.moezx.cc/images/2022/11/02/90cfb62b6bdd19d7b654f36e46610949.jpg class="img-topic">
+  </div>
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STL的几个中用的功能
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-19 22:02:20" itemprop="dateCreated datePublished" datetime="2022-10-19T22:02:20+08:00">2022-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-08 17:27:26" itemprop="dateModified" datetime="2022-11-08T17:27:26+08:00">2022-11-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <center>
+<p>I LOVE　STL(深度调教)</p>
+<code>本文默认数组从1开始用</code>
+</center>
+<span id="more"></span>
+<hr />
+<h3 id="总录">总录</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />mt19937</label></li>
+<li><label><input type="checkbox" checked="" />nth_element</label></li>
+<li><label><input type="checkbox" checked="" />vector(手打)</label></li>
+<li><label><input type="checkbox"
+checked="" />binary_search</label></li>
+<li><label><input type="checkbox"
+checked="" />__builtin_popcount(其实这个不是<code>STL</code>的,但是很中用)</label></li>
+<li><label><input type="checkbox" />stable_sort</label></li>
+</ul>
+<hr />
+<h3 id="mt19937">mt19937</h3>
+<p>第一个先说随机数,这个东西很好用,常常用在对拍里来测试程序的稳定性……</p>
+<p>优点</p>
+<ul>
+<li>速度比<code>rand()</code>快</li>
+<li>范围比<code>rand()</code>大
+<code>rand()</code>在win下随机范围为<code>0-32767</code>而<code>mt19937</code>为<code>-2147483646-2147483647</code></li>
+</ul>
+<p>初始化方法也很简单<code>std::mt19937 name(seed);</code>
+name就是你随机函数的名字,种子自己选,多当前时间,调用时时候要加上<code>()</code>。eg:<code>mt19937 duipai(time(0));</code></p>
+<p>这里有一个示例 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function">std::mt19937 <span class="title">duipai</span><span class="params">(time(<span class="number">0</span>))</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">duipai</span>()%<span class="number">114514</span>;)</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我对它的研究不深,想要限制数据范围最好的方法就是取模。如果你想更大的随机数(<code>mt19937</code>为+/-INT_MIN范围啊),你可以用<code>mt19937_64</code></p>
+<p>如果你想了解C++生成(伪)随机数的原理,可以<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/507142260">看这里</a></p>
+<p>如果你想把mt19937💘调教⚥⚢⚨⚣⚩⚦♀♁到极致,什么数据上下界,可以<a
+target="_blank" rel="noopener" href="https://cplusplus.com/reference/random/mt19937/?kw=mt19937">看这里</a></p>
+<hr />
+<h3 id="nth_element">nth_element</h3>
+<p>第二个是和区间第<code>k</code>小的,定义在<code>&lt;algorithm&gt;</code>;</p>
+<p>功能:在[l,r)区间第<code>k</code>小的放到第<code>k</code>位上</p>
+<p>写法依然简单,eg:<code>std::nth_element(arr+1,arr+k,arr+n+1);</code></p>
+<ul>
+<li>arr+1: 起始位置</li>
+<li>arr+k: 即为第<code>k</code>小</li>
+<li>n: 从起始位置开始的元素个数</li>
+</ul>
+<p>但是有几个细节要注意:</p>
+<ul>
+<li>它只保证<code>k</code>不保证其他的有序！！！</li>
+<li>r是开区间,所以我们要对<code>n</code>加上个<code>1</code>!!!
+<del>(毒瘤额)</del></li>
+</ul>
+<p>这里有一个示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> in[<span class="number">6</span>]=&#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    std::<span class="built_in">nth_element</span>(in+<span class="number">1</span>,in+<span class="number">4</span>,in+<span class="number">6</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,in[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//result: 3 1 2 4 5</span></span><br></pre></td></tr></table></figure>
+<p>其他的调教方案<a
+target="_blank" rel="noopener" href="https://cplusplus.com/reference/algorithm/nth_element/?kw=nth_element">请看这里</a></p>
+<hr />
+<h3 id="vector">vector</h3>
+<p>第三个是<code>vector</code>,这个相比大家又会的说,所以我不在赘述。</p>
+<p>这里要说的是手打实现的(防止TLE,有时候我不需要动态内存(这个超慢的的说),只需要vector的添加修改功能,
+<del>手动记队尾不就出错率++可调试性--QwQ</del>)</p>
+<p>这里引用来自ymj的代码(我被喷了,别骂了我写不出STLQwQ)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="type">size_t</span> N&gt; <span class="keyword">struct</span> <span class="title class_">c</span> &#123;</span><br><span class="line">  T a[N];</span><br><span class="line">  <span class="type">size_t</span> endpos = <span class="number">0</span>;</span><br><span class="line">  <span class="function">T *<span class="title">begin</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> a; &#125;</span><br><span class="line">  <span class="function">T *<span class="title">end</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> a + endpos; &#125;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">push_back</span><span class="params">(T &amp;&amp;val)</span> </span>&#123;</span><br><span class="line">    a[endpos] = val;</span><br><span class="line">    endpos++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function">T <span class="title">pop_back</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    endpos--;</span><br><span class="line">    <span class="keyword">return</span> a[endpos];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> endpos==<span class="number">0</span>;&#125;</span><br><span class="line">  <span class="function"><span class="type">size_t</span> <span class="title">size</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> endpos;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">T </span><br></pre></td></tr></table></figure>
+<p>当然可以在里面加很多骚操作,比如说线段树,但是我不会啦QwQ,有事 <span
+class="citation" data-cites="ymj">@ymj</span></p>
+<hr />
+<h3 id="binary_search-lower_bound-upper_bound">binary_search &amp;
+lower_bound &amp; upper_bound</h3>
+<p>以下都定义在<code>&lt;algorithm&gt;</code>库中</p>
+<p>  <strong>binary_search</strong></p>
+<p>用法就跟名字一样二分搜索是否存在该值,返回<code>bool</code>。查询的值存在为<code>1</code>，反之为<code>0</code>。</p>
+<p>优点(硬要说的话):</p>
+<ul>
+<li>手打可能回出错QwQ,STL很严谨</li>
+</ul>
+<p>要注意的点:</p>
+<ul>
+<li>要保证元素有序</li>
+</ul>
+<p>格式: <code>std::binary_search(arr+1,arr+1+n,val)</code></p>
+<ul>
+<li>arr+1:起始位置</li>
+<li>n:从起始位置开始的元素个数</li>
+<li>val: 要查找的值</li>
+</ul>
+<p>这里有一个示例 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> in[]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">1314</span>,<span class="number">91182</span>&#125;;</span><br><span class="line">    <span class="type">bool</span> flag=std::<span class="built_in">binary_search</span>(in+<span class="number">1</span>,in+<span class="number">7</span>,<span class="number">3</span>);</span><br><span class="line">    std::cout&lt;&lt;flag&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// rusult: 0</span></span><br></pre></td></tr></table></figure></p>
+<p>   <strong>lower_bound</strong></p>
+<p>这个大家应该都不陌生,查找第一个大于等于某个元素的位置,返回下标地址(注意是地址指针)</p>
+<p>优缺点同上</p>
+<p>格式: <code>std::lower_bound(arr+1,arr+n,val)-arr;</code></p>
+<ul>
+<li>arr+1:起始位置</li>
+<li>n:从起始位置开始的元素个数</li>
+<li>val: 要查找的值</li>
+</ul>
+<p>注意点:</p>
+<ul>
+<li>返回的是地址指针,(常用)所以需要减去数组首地址才是下标(如果你用下标话QwQ)</li>
+</ul>
+<p>  <strong>upper_bound</strong></p>
+<p>(其实这个不是<code>STL</code>的,但是很中用)</p>
+<p>查找第一个大于某个元素的位置,返回下标地址(注意是大于,不是大于等于)</p>
+<p>优缺点同上,用法略同不在赘述……</p>
+<hr />
+<p>  **__builtin_popcount**</p>
+<p>这个能高效返回数的二进制下<code>1</code>的个数;</p>
+<p>格式 : <code>__builtin_popcount(x)</code></p>
+<p>注意点:</p>
+<ul>
+<li>返回值是<code>int</code>如果想返回 <code>unsigned long long</code>
+可以加上<code>ll</code> eg: <code>__builtin_popcountll(x)</code></li>
+</ul>
+<hr />
+<p>  <strong>stable_sort</strong></p>
+<p>对序列进行升序排序,但是是稳定排序</p>
+<p>格式:<code>std::stable_sort(arr,arr+n)</code></p>
+<p>格式 同上;(以后无特殊说明皆为同上,<del>偷懒</del>);</p>
+<hr />
+<p>参考</p>
+<blockquote>
+<p>[ <a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/RioTian/p/13527421.html">__builtin_popcount（）
+函数</a>]</p>
+</blockquote>
+<p>推荐文章</p>
+<blockquote>
+<p>[<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Rappy/article/details/1788969">__builtin_popcount</a>]</p>
+</blockquote>
+<center>
+🍂未完待续……
+</center>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>德叶荣
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://deyerong.github.io/2022/10/19/STL%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%AD%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD/" title="STL的几个中用的功能">https://deyerong.github.io/2022/10/19/STL的几个中用的功能/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" rel="tag"><i class="fa-sharp fa-solid fa-jedi"></i>奇技淫巧</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/10/18/%E3%80%94NOIP2022%E6%A8%A1%E6%8B%9F%E3%80%95%E5%88%86%EF%BC%81%E8%BA%AB%EF%BC%81%E6%9C%AF-%E8%B8%A9%E5%A4%A7%E5%9D%91%E4%B9%8B%E4%B8%89%E6%AC%A1%E4%BC%98%E5%8C%96QwQ/" rel="prev" title="〔NOIP2022模拟〕分！身！术！(踩大坑之三次优化QwQ)">
+                  <i class="fa fa-chevron-left"></i> 〔NOIP2022模拟〕分！身！术！(踩大坑之三次优化QwQ)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/20/%E3%80%9420221020%E3%80%95%E8%80%83%E8%AF%95%E6%94%B9%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="next" title="〔20221020〕考试改题笔记">
+                  〔20221020〕考试改题笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">德叶荣</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js","integrity":"sha256-ZfzwelSToHk5YAcr9wbXAmWgyn9Jyq08fSLrLhZE89w="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://deyerong.github.io/2022/10/19/STL%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%AD%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>
